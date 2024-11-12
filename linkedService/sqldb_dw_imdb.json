@@ -1,0 +1,14 @@
+{
+	"name": "sqldb_dw_imdb",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "sql-dw-imdb-01.database.windows.net",
+			"database": "sqldb-dw-imdb-01",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SystemAssignedManagedIdentity"
+		}
+	}
+}
