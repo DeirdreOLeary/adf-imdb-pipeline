@@ -1,0 +1,11 @@
+{
+	"name": "stimdb01",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"serviceEndpoint": "https://stimdb01.blob.core.windows.net/",
+			"accountKind": "StorageV2"
+		}
+	}
+}
