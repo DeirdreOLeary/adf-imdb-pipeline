@@ -1,0 +1,136 @@
+{
+	"name": "bronze_extract_files",
+	"properties": {
+		"activities": [
+			{
+				"name": "name_basics",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"parallelCopies": 2,
+					"dataIntegrationUnits": 4,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "nconst",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "nconst",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "primaryName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "primaryName",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "birthYear",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "birthYear",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "deathYear",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "deathYear",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "primaryProfession",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "primaryProfession",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "knownForTitles",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "knownForTitles",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "name_basics_tsv_gz",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "bronze_name_basics",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
