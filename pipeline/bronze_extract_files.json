@@ -32,8 +32,6 @@
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
-					"parallelCopies": 2,
-					"dataIntegrationUnits": 4,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
