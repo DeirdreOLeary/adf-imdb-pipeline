@@ -1,0 +1,50 @@
+{
+	"name": "name_basics_tsv_gz",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stimdb01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "name.basics.tsv.gz",
+				"folderPath": "20241106",
+				"container": "imdb-01"
+			},
+			"columnDelimiter": "\t",
+			"compressionCodec": "gzip",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": ""
+		},
+		"schema": [
+			{
+				"name": "nconst",
+				"type": "String"
+			},
+			{
+				"name": "primaryName",
+				"type": "String"
+			},
+			{
+				"name": "birthYear",
+				"type": "String"
+			},
+			{
+				"name": "deathYear",
+				"type": "String"
+			},
+			{
+				"name": "primaryProfession",
+				"type": "String"
+			},
+			{
+				"name": "knownForTitles",
+				"type": "String"
+			}
+		]
+	}
+}
