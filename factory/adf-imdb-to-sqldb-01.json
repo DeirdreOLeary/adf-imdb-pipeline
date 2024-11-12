@@ -1,0 +1,9 @@
+{
+	"name": "adf-imdb-to-sqldb-01",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "***REMOVED***",
+		"tenantId": "***REMOVED***"
+	}
+}
