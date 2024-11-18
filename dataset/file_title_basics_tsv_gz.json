@@ -1,5 +1,5 @@
 {
-	"name": "file_name_basics_tsv_gz",
+	"name": "file_title_basics_tsv_gz",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "stimdb01",
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "name.basics.tsv.gz",
+				"fileName": "title.basics.tsv.gz",
 				"folderPath": "20241106",
 				"container": "imdb-01"
 			},
@@ -22,27 +22,39 @@
 		},
 		"schema": [
 			{
-				"name": "nconst",
+				"name": "tconst",
 				"type": "String"
 			},
 			{
-				"name": "primaryName",
+				"name": "titleType",
 				"type": "String"
 			},
 			{
-				"name": "birthYear",
+				"name": "primaryTitle",
 				"type": "String"
 			},
 			{
-				"name": "deathYear",
+				"name": "originalTitle",
 				"type": "String"
 			},
 			{
-				"name": "primaryProfession",
+				"name": "isAdult",
 				"type": "String"
 			},
 			{
-				"name": "knownForTitles",
+				"name": "startYear",
+				"type": "String"
+			},
+			{
+				"name": "endYear",
+				"type": "String"
+			},
+			{
+				"name": "runtimeMinutes",
+				"type": "String"
+			},
+			{
+				"name": "genres",
 				"type": "String"
 			}
 		]

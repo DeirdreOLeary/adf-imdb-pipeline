@@ -117,13 +117,175 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "name_basics_tsv_gz",
+						"referenceName": "file_name_basics_tsv_gz",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "bronze_name_basics",
+						"referenceName": "tbl_bronze_name_basics",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "title_basics",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "tconst",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tconst",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "titleType",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "titleType",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "primaryTitle",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "primaryTitle",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "originalTitle",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "originalTitle",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "isAdult",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "isAdult",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "startYear",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "startYear",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "endYear",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "endYear",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "runtimeMinutes",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "runtimeMinutes",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "genres",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "genres",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "file_title_basics_tsv_gz",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "tbl_bronze_title_basics",
 						"type": "DatasetReference"
 					}
 				]
