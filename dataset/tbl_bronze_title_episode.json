@@ -5,6 +5,9 @@
 			"referenceName": "sqldb_dw_imdb",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "SQL Database"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [

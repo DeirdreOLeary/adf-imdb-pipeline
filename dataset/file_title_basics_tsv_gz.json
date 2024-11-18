@@ -5,6 +5,9 @@
 			"referenceName": "stimdb01",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Blobs"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
