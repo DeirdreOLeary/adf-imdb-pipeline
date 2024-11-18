@@ -16,7 +16,7 @@
 			},
 			"columnDelimiter": "\t",
 			"compressionCodec": "gzip",
-			"escapeChar": "\\",
+			"escapeChar": "",
 			"firstRowAsHeader": true,
 			"quoteChar": ""
 		},
