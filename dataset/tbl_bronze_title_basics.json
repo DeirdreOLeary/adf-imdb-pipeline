@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "SQL Database"
+			"name": "SQL Database/bronze"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
