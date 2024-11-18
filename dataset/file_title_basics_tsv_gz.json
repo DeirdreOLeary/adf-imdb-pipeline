@@ -1,0 +1,65 @@
+{
+	"name": "file_title_basics_tsv_gz",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stimdb01",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Blobs"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "title.basics.tsv.gz",
+				"folderPath": "20241106",
+				"container": "imdb-01"
+			},
+			"columnDelimiter": "\t",
+			"compressionCodec": "gzip",
+			"escapeChar": "",
+			"firstRowAsHeader": true,
+			"quoteChar": ""
+		},
+		"schema": [
+			{
+				"name": "tconst",
+				"type": "String"
+			},
+			{
+				"name": "titleType",
+				"type": "String"
+			},
+			{
+				"name": "primaryTitle",
+				"type": "String"
+			},
+			{
+				"name": "originalTitle",
+				"type": "String"
+			},
+			{
+				"name": "isAdult",
+				"type": "String"
+			},
+			{
+				"name": "startYear",
+				"type": "String"
+			},
+			{
+				"name": "endYear",
+				"type": "String"
+			},
+			{
+				"name": "runtimeMinutes",
+				"type": "String"
+			},
+			{
+				"name": "genres",
+				"type": "String"
+			}
+		]
+	}
+}

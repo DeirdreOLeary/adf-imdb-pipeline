@@ -1,0 +1,53 @@
+{
+	"name": "file_title_principals_tsv_gz",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stimdb01",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Blobs"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "title.principals.tsv.gz",
+				"folderPath": "20241106",
+				"container": "imdb-01"
+			},
+			"columnDelimiter": "\t",
+			"compressionCodec": "gzip",
+			"escapeChar": "",
+			"firstRowAsHeader": true,
+			"quoteChar": ""
+		},
+		"schema": [
+			{
+				"name": "tconst",
+				"type": "String"
+			},
+			{
+				"name": "ordering",
+				"type": "String"
+			},
+			{
+				"name": "nconst",
+				"type": "String"
+			},
+			{
+				"name": "category",
+				"type": "String"
+			},
+			{
+				"name": "job",
+				"type": "String"
+			},
+			{
+				"name": "characters",
+				"type": "String"
+			}
+		]
+	}
+}

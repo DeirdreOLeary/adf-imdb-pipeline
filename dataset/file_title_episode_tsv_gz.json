@@ -1,0 +1,45 @@
+{
+	"name": "file_title_episode_tsv_gz",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stimdb01",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Blobs"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "title.episode.tsv.gz",
+				"folderPath": "20241106",
+				"container": "imdb-01"
+			},
+			"columnDelimiter": "\t",
+			"compressionCodec": "gzip",
+			"escapeChar": "",
+			"firstRowAsHeader": true,
+			"quoteChar": ""
+		},
+		"schema": [
+			{
+				"name": "tconst",
+				"type": "String"
+			},
+			{
+				"name": "parentTconst",
+				"type": "String"
+			},
+			{
+				"name": "seasonNumber",
+				"type": "String"
+			},
+			{
+				"name": "episodeNumber",
+				"type": "String"
+			}
+		]
+	}
+}

@@ -1,0 +1,44 @@
+{
+	"name": "tbl_bronze_name_basics",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_dw_imdb",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SQL Database/bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "nconst",
+				"type": "varchar"
+			},
+			{
+				"name": "primaryName",
+				"type": "varchar"
+			},
+			{
+				"name": "birthYear",
+				"type": "varchar"
+			},
+			{
+				"name": "deathYear",
+				"type": "varchar"
+			},
+			{
+				"name": "primaryProfession",
+				"type": "varchar"
+			},
+			{
+				"name": "knownForTitles",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "name_basics"
+		}
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"name": "tbl_bronze_title_episode",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_dw_imdb",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SQL Database/bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "tconst",
+				"type": "varchar"
+			},
+			{
+				"name": "parentTconst",
+				"type": "varchar"
+			},
+			{
+				"name": "seasonNumber",
+				"type": "varchar"
+			},
+			{
+				"name": "episodeNumber",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "title_episode"
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"name": "tbl_bronze_title_crew",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_dw_imdb",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SQL Database/bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "tconst",
+				"type": "varchar"
+			},
+			{
+				"name": "directors",
+				"type": "varchar"
+			},
+			{
+				"name": "writers",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "title_crew"
+		}
+	}
+}

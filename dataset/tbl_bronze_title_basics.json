@@ -1,0 +1,56 @@
+{
+	"name": "tbl_bronze_title_basics",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_dw_imdb",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SQL Database/bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "tconst",
+				"type": "varchar"
+			},
+			{
+				"name": "titleType",
+				"type": "varchar"
+			},
+			{
+				"name": "primaryTitle",
+				"type": "varchar"
+			},
+			{
+				"name": "originalTitle",
+				"type": "varchar"
+			},
+			{
+				"name": "isAdult",
+				"type": "varchar"
+			},
+			{
+				"name": "startYear",
+				"type": "varchar"
+			},
+			{
+				"name": "endYear",
+				"type": "varchar"
+			},
+			{
+				"name": "runtimeMinutes",
+				"type": "varchar"
+			},
+			{
+				"name": "genres",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "title_basics"
+		}
+	}
+}
