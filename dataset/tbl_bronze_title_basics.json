@@ -1,5 +1,5 @@
 {
-	"name": "tbl_bronze_name_basics",
+	"name": "tbl_bronze_title_basics",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "sqldb_dw_imdb",
@@ -9,33 +9,45 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "nconst",
+				"name": "tconst",
 				"type": "varchar"
 			},
 			{
-				"name": "primaryName",
+				"name": "titleType",
 				"type": "varchar"
 			},
 			{
-				"name": "birthYear",
+				"name": "primaryTitle",
 				"type": "varchar"
 			},
 			{
-				"name": "deathYear",
+				"name": "originalTitle",
 				"type": "varchar"
 			},
 			{
-				"name": "primaryProfession",
+				"name": "isAdult",
+				"type": "bit"
+			},
+			{
+				"name": "startYear",
 				"type": "varchar"
 			},
 			{
-				"name": "knownForTitles",
+				"name": "endYear",
+				"type": "varchar"
+			},
+			{
+				"name": "runtimeMinutes",
+				"type": "varchar"
+			},
+			{
+				"name": "genres",
 				"type": "varchar"
 			}
 		],
 		"typeProperties": {
 			"schema": "bronze",
-			"table": "name_basics"
+			"table": "title_basics"
 		}
 	}
 }
