@@ -29,7 +29,7 @@
 			},
 			{
 				"name": "isAdult",
-				"type": "bit"
+				"type": "varchar"
 			},
 			{
 				"name": "startYear",
