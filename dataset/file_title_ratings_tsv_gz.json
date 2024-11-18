@@ -1,0 +1,41 @@
+{
+	"name": "file_title_ratings_tsv_gz",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stimdb01",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Blobs"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "title.ratings.tsv.gz",
+				"folderPath": "20241106",
+				"container": "imdb-01"
+			},
+			"columnDelimiter": "\t",
+			"compressionCodec": "gzip",
+			"escapeChar": "",
+			"firstRowAsHeader": true,
+			"quoteChar": ""
+		},
+		"schema": [
+			{
+				"name": "tconst",
+				"type": "String"
+			},
+			{
+				"name": "averageRating",
+				"type": "String"
+			},
+			{
+				"name": "numVotes",
+				"type": "String"
+			}
+		]
+	}
+}
