@@ -1,12 +1,10 @@
 {
-	"name": "bronze_extract_files",
+	"name": "pl_data_bronze_extract_files",
 	"properties": {
 		"activities": [
 			{
 				"name": "name_basics",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -133,8 +131,6 @@
 			{
 				"name": "title_basics",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -297,8 +293,6 @@
 			{
 				"name": "title_crew",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -389,8 +383,6 @@
 			{
 				"name": "title_episode",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -493,8 +485,6 @@
 			{
 				"name": "title_principals",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
