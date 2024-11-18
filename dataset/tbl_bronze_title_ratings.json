@@ -1,0 +1,35 @@
+{
+	"name": "tbl_bronze_title_ratings",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_dw_imdb",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SQL Database/bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "tconst",
+				"type": "varchar"
+			},
+			{
+				"name": "averageRating",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 6
+			},
+			{
+				"name": "numVotes",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "title_ratings"
+		}
+	}
+}
