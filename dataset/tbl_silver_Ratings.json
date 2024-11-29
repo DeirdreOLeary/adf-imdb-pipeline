@@ -1,0 +1,35 @@
+{
+	"name": "tbl_silver_Ratings",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_dw_imdb",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SQL Database/silver"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "TitleKey",
+				"type": "varchar"
+			},
+			{
+				"name": "AverageRating",
+				"type": "decimal",
+				"precision": 3,
+				"scale": 1
+			},
+			{
+				"name": "NumberOfVotes",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "silver",
+			"table": "Ratings"
+		}
+	}
+}
