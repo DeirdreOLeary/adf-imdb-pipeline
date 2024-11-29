@@ -1,0 +1,41 @@
+{
+	"name": "tbl_silver_Movies",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_dw_imdb",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SQL Database/silver"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "TitleKey",
+				"type": "varchar"
+			},
+			{
+				"name": "Title",
+				"type": "varchar"
+			},
+			{
+				"name": "ReleaseYear",
+				"type": "char"
+			},
+			{
+				"name": "RuntimeInMinutes",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Genres",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "silver",
+			"table": "Movies"
+		}
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"name": "tbl_silver_TVSeries",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_dw_imdb",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SQL Database/silver"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "TitleKey",
+				"type": "varchar"
+			},
+			{
+				"name": "Title",
+				"type": "varchar"
+			},
+			{
+				"name": "StartYear",
+				"type": "char"
+			},
+			{
+				"name": "EndYear",
+				"type": "char"
+			},
+			{
+				"name": "NumberOfSeasons",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "NumberOfEpisodes",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "Genres",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "silver",
+			"table": "TVSeries"
+		}
+	}
+}
