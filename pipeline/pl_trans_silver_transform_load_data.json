@@ -1,0 +1,190 @@
+{
+	"name": "pl_trans_silver_transform_load_data",
+	"properties": {
+		"activities": [
+			{
+				"name": "Truncate silver tables",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[silver].[ADF_Truncate_Tables]"
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Transform and Load Directors data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Truncate silver tables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[silver].[ADF_Transform_Load_Directors]"
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Transform and Load Movies data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Truncate silver tables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[silver].[ADF_Transform_Load_Movies]"
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Transform and Load Ratings data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Truncate silver tables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[silver].[ADF_Transform_Load_Ratings]"
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Transform and Load Actors data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Truncate silver tables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[silver].[ADF_Transform_Load_Actors]"
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Transform and Load TV Series data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Truncate silver tables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[silver].[ADF_Transform_Load_TVSeries]"
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Transform and Load Writers data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Truncate silver tables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[silver].[ADF_Transform_Load_Writers]"
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}

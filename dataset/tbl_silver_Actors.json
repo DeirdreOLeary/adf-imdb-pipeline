@@ -1,0 +1,44 @@
+{
+	"name": "tbl_silver_Actors",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_dw_imdb",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SQL Database/silver"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "NameKey",
+				"type": "varchar"
+			},
+			{
+				"name": "TitleKey",
+				"type": "varchar"
+			},
+			{
+				"name": "Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Character",
+				"type": "varchar"
+			},
+			{
+				"name": "BirthYear",
+				"type": "char"
+			},
+			{
+				"name": "DeathYear",
+				"type": "char"
+			}
+		],
+		"typeProperties": {
+			"schema": "silver",
+			"table": "Actors"
+		}
+	}
+}
