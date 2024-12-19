@@ -1,0 +1,300 @@
+{
+	"name": "pl_trans_gold_load_data",
+	"properties": {
+		"activities": [
+			{
+				"name": "Load dimActor data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[gold].[ADF_Load_dimActor]",
+					"storedProcedureParameters": {
+						"ETLTimestamp": {
+							"value": {
+								"value": "@utcNow()",
+								"type": "Expression"
+							},
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load dimDirector data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[gold].[ADF_Load_dimDirector]",
+					"storedProcedureParameters": {
+						"ETLTimestamp": {
+							"value": "@utcNow()",
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load dimWriter data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[gold].[ADF_Load_dimWriter]",
+					"storedProcedureParameters": {
+						"ETLTimestamp": {
+							"value": "@utcNow()",
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load dimMovie data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[gold].[ADF_Load_dimMovie]",
+					"storedProcedureParameters": {
+						"ETLTimestamp": {
+							"value": "@utcNow()",
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load dimTVSeries data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[gold].[ADF_Load_dimTVSeries]",
+					"storedProcedureParameters": {
+						"ETLTimestamp": {
+							"value": "@utcNow()",
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load factRating data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Load dimTVSeries data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Load dimMovie data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Load dimWriter data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Load dimDirector data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Load dimActor data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[gold].[ADF_Load_factRating]",
+					"storedProcedureParameters": {
+						"ETLTimestamp": {
+							"value": "@utcNow()",
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load bridgeDirector data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Load factRating data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[gold].[ADF_Load_bridgeDirector]",
+					"storedProcedureParameters": {
+						"ETLTimestamp": {
+							"value": "@utcNow()",
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load bridgeWriter data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Load factRating data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[gold].[ADF_Load_bridgeWriter]",
+					"storedProcedureParameters": {
+						"ETLTimestamp": {
+							"value": "@utcNow()",
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load bridgeActor data",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Load factRating data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[gold].[ADF_Load_bridgeActor]",
+					"storedProcedureParameters": {
+						"ETLTimestamp": {
+							"value": {
+								"value": "@utcNow()",
+								"type": "Expression"
+							},
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "sqldb_dw_imdb",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
